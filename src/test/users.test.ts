@@ -60,7 +60,7 @@ describe('Testing Users', () => {
     it('response Create user', async () => {
       const userData: CreateUserDto = {
         email: 'test@email.com',
-        password: 'q1w2e3r4',
+        password: 'q1w2e3r4e9dalFF',
       };
 
       const usersRoute = new UserRoute();
@@ -83,7 +83,7 @@ describe('Testing Users', () => {
       const userId = 1;
       const userData: CreateUserDto = {
         email: 'test@email.com',
-        password: 'q1w2e3r4',
+        password: 'q1w2e3r4092sSJK',
       };
 
       const usersRoute = new UserRoute();

@@ -10,11 +10,11 @@ afterAll(async () => {
 });
 
 describe('Testing Auth', () => {
-  describe('[POST] /signup', () => {
+  describe('[POST] /auth/signup', () => {
     it('response should have the Create userData', async () => {
       const userData: CreateUserDto = {
         email: 'test@email.com',
-        password: 'q1w2e3r4',
+        password: 'q1w2e3r4092sSJK',
       };
 
       const authRoute = new AuthRoute();
@@ -28,15 +28,15 @@ describe('Testing Auth', () => {
       });
 
       // const app = new App([authRoute]);
-      return request(app.getServer()).post(`${authRoute.path}signup`).send(userData).expect(201);
+      return request(app.getServer()).post(`${authRoute.path}/signup`).send(userData).expect(201);
     });
   });
 
-  describe('[POST] /login', () => {
+  describe('[POST] /auth/login', () => {
     it('response should have the Set-Cookie header with the Authorization token', async () => {
       const userData: CreateUserDto = {
         email: 'test@email.com',
-        password: 'q1w2e3r4',
+        password: 'q1w2e3r4092sSJK',
       };
 
       const authRoute = new AuthRoute();
@@ -50,18 +50,18 @@ describe('Testing Auth', () => {
 
       // const app = new App([authRoute]);
       return request(app.getServer())
-        .post(`${authRoute.path}login`)
+        .post(`${authRoute.path}/login`)
         .send(userData)
         .expect('Set-Cookie', /^Authorization=.+/);
     });
   });
 
-  // describe('[POST] /logout', () => {
+  // describe('[POST] /auth/logout', () => {
   //   it('logout Set-Cookie Authorization=; Max-age=0', async () => {
   //     const user: User = {
   //       id: 1,
   //       email: 'test@email.com',
-  //       password: 'q1w2e3r4',
+  //       password: 'q1w2e3r4092sSJK',
   //     };
 
   //     const authRoute = new AuthRoute();
@@ -72,9 +72,8 @@ describe('Testing Auth', () => {
   //       password: await bcrypt.hash(user.password, 10),
   //     });
 
-  //     const app = new App([authRoute]);
   //     return request(app.getServer())
-  //       .post(`${authRoute.path}logout`)
+  //       .post(`${authRoute.path}/logout`)
   //       .expect('Set-Cookie', /^Authorization=\;/);
   //   });
   // });

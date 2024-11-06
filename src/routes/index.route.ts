@@ -12,8 +12,8 @@ export default class IndexRoute implements Routes {
   }
 
   private initializeRoutes() {
-    this.router.use('/users', new UserRoute().router);
-    this.router.use('/auth', new AuthRoute().router);
+    this.router.use(`${this.path}`, new UserRoute().router);
+    this.router.use(`${this.path}`, new AuthRoute().router);
 
     this.router.get(`${this.path}`, this.index);
   }
